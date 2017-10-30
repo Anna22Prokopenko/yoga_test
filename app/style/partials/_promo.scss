@@ -1,0 +1,249 @@
+$promo_height: 700px;
+$promo_bg: #5363db;
+$cntform_width: 300px;
+$cntform_height: 400px;
+$cntform_bg: #fff;
+$cntform_top: 200px;
+$promoText_top: 140%;
+$promoText_width: 40%;
+$form_padding: 30px;
+$input_bg: rgb(242, 242, 242);
+$input_padding: 10px;
+$input_margin: 10px;
+$input_title_color: #5363db;
+$input_color: #606060;
+
+.l-promo {
+	position: relative;
+    height: $promo_height;
+    background: $promo_bg;
+    overflow: hidden;
+}
+.c-promoSlider {
+	position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+	list-style: none;
+    display: block;
+    width: 100%;
+    height: 100%;
+	overflow: hidden;
+	z-index: 1;
+	&:before {
+		content: "";
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		z-index: 900;
+		height: 100%;
+		background: rgb( 83, 99, 219 );
+		opacity: 0.8;
+	}
+	&__item {
+		position: static;
+		top: 0px;
+		left: 0px;
+		z-index: 100;
+		display: block;
+		width: 100%;
+		height: 100%;
+		background-image: url(../img/slider-bg1.jpg);
+		background-repeat: no-repeat;
+		background-position: 50% 50%;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		background-size: cover;
+	}
+}
+.c-promoContent {
+	z-index: 2;
+    padding-top: 175px;
+    font-size: 20px;
+    color: #fff;
+    text-align: center;
+	&__form {
+		position: absolute;
+		top: $cntform_top;
+		left: 50%;
+		margin-left: -($cntform_width + 40px);
+		width: $cntform_width;
+		height: $cntform_height;
+		background-color: $cntform_bg;
+		@include border-radius(20px); 
+	}
+	&__text {
+		position: absolute;
+		top: $promoText_top;
+		left: 50%;
+		margin-left: 40px;
+		width: $promoText_width;
+		text-align: left;
+	}
+	&__title {
+		font-size: 200%;
+		line-height: 1.5;
+		font-weight: bold;
+		text-transform: uppercase;
+	}
+	&__subtitle {
+		font-size: 150%;
+		line-height: 1.5;
+	}
+}
+.c-promoForm {
+	width: 100%;
+	height: 100%;
+	padding: $form_padding;
+	text-align: left;
+	&__title {
+		color: $input_title_color;
+		font-weight: bold;
+		text-align: left;
+		margin: 0;
+		margin-bottom: 25px;
+	}
+	&__input {
+		width: 100%;
+		background-color: $input_bg;
+		@include border-radius(8px); 
+		padding: $input_padding;
+		font-size: 80%;
+		margin: $input_margin 0;
+		color: $input_color;
+		outline: none;
+		&:focus {
+			background-color: $promo_bg;
+			opacity: 0.8;
+			color: #fff;
+		}
+	}
+	&__submit {
+		width: 70%;
+		background-color: $promo_bg;
+		color: #fff;
+		padding: $input_padding;
+		text-align: center;
+		@include border-radius(8px); 
+		margin-top: 35px;
+		box-shadow: -1.121px 4.121px 5px 0px $border_color;
+		float: right;
+	}
+}
+
+*,
+*:after,
+*:before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+::selection {
+    background: transparent; 
+}
+
+::-moz-selection {
+    background: transparent; 
+}
+
+
+.c-promoForm__select {
+    position: relative;
+    @extend .c-promoForm__input;
+    cursor: pointer;
+	outline: none;
+	&:focus {
+		background-color: $input_bg;
+		opacity: 1;
+		color: $input_color;
+	}
+	&:after {
+		content: "";
+		width: 0;
+		height: 0;
+		position: absolute;
+		right: 16px;
+		top: 50%;
+		margin-top: -6px;
+		border-width: 6px 0 6px 6px;
+		border-style: solid;
+		border-color: transparent #636363;   
+	}
+	&.active .dropdown {
+		opacity: 1;
+		pointer-events: auto;
+		outline: none;
+		&:after {
+			border-color: $promo_bg transparent;
+			border-width: 6px 6px 0 6px ;
+			margin-top: -3px;
+		}
+	}
+	&.active {
+		background: $promo_bg;
+		color: #fff;
+		background: -moz-linear-gradient(left,  $promo_bg 0%, $promo_bg 78%, #ffffff 78%, #ffffff 100%);
+		background: -webkit-gradient(linear, left top, right top, color-stop(0%,$promo_bg), color-stop(78%,$promo_bg), color-stop(78%,#ffffff), color-stop(100%,#ffffff));
+		background: -webkit-linear-gradient(left,  $promo_bg 0%,$promo_bg 78%,#ffffff 78%,#ffffff 100%);
+		background: -o-linear-gradient(left,  $promo_bg 0%,$promo_bg 78%,#ffffff 78%,#ffffff 100%);
+		background: -ms-linear-gradient(left,  $promo_bg 0%,$promo_bg 78%,#ffffff 78%,#ffffff 100%);
+		background: linear-gradient(to right,  $promo_bg 0%,$promo_bg 78%,$input_bg 78%,$input_bg 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$promo_bg', endColorstr='#ffffff',GradientType=1 );
+	}
+	.dropdown {
+		margin-top: 8px;
+		@include border-radius(8px);
+		position: absolute;
+		top: 100%;
+		left: 0;
+		right: 0;
+		background: $input_bg;
+		list-style: none;
+		font-weight: normal;
+		/* Hiding */
+		opacity: 0;
+		pointer-events: none;
+			li a {
+				display: block;
+				text-decoration: none;
+				color: $input_color;
+				padding: 10px;
+				opacity: 1;
+				
+			}
+			li:hover a {
+				background: $promo_bg;
+				color: #fff;
+				@include border-radius(8px);
+			}
+	}
+}
+/* No CSS3 support */
+
+.no-opacity       .c-promoForm__select .dropdown,
+.no-pointerevents .c-promoForm__select .dropdown {
+    display: none;
+    opacity: 1; /* If opacity support but no pointer-events support */
+    pointer-events: auto; /* If pointer-events support but no pointer-events support */
+}
+
+.no-opacity       .c-promoForm__select.active .dropdown,
+.no-pointerevents .c-promoForm__select.active .dropdown {
+    display: block;
+}
+
+.Rounded_Rectangle_2_copy_2 {
+  border-radius: 8px;
+  background-color: rgb( 91, 108, 235 );
+  box-shadow: 2.121px 2.121px 5px 0px $input_bg;
+  position: absolute;
+  left: 710px;
+  top: 506px;
+  width: 170px;
+  height: 50px;
+  z-index: 286;
+}

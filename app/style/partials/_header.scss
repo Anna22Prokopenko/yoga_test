@@ -1,0 +1,84 @@
+/*переменные*/
+$header_bg: #fff;
+$header_link_color: #606060;
+$header_link_color: #606060;
+$logo_text_color: #5363db;
+$header_link_textDecor: 60%;
+$header_a_padding: 5px;
+$header_nav_padding: 14px;
+$header_list_padding: 25.5px;
+$header_avatarPhoto: 100px;
+$header_avatarMargin: 20px;
+$header_avatarRadius: $header_avatarPhoto / 2;
+$header_textBg: #fffbc8;
+$border_color: #cecabf;
+$list_padding : 10px;
+$listItem_quantity: 3;
+$listItem_padding: 3px;
+$listItem_margin: 3px;
+
+.c-header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	background-color: $header_bg;
+	padding: $header_nav_padding;
+	z-index: 9999;
+	&__list {
+		list-style: none;
+		display: block;
+		width: 40%;
+		float: left;
+		padding: $header_list_padding;
+		margin: 0;
+		text-align: right;
+		white-space: nowrap;
+		&.-right {
+			text-align: left;
+		}
+		.c-header__item {
+			display: inline-block;
+			margin: 0 10px;
+			a {
+				position: relative;
+				color: $header_link_color;
+				padding-bottom: $header_a_padding;
+				@include font-face (ChampagneLimousines, fonts/champagne_limousines);
+				&:hover:after {
+					content: "";
+					display: block;
+					position: absolute;
+					bottom: 0;
+					left: (100% - $header_link_textDecor) /2;
+					width: $header_link_textDecor;
+					height: 1px;
+					background-color: $logo_text_color;
+					margin: 0 auto;
+				}
+				&:hover {
+					color: $logo_text_color;
+					text-decoration: none;
+				}
+			}
+			
+		}
+	}
+	&__logo {
+		width: 20%;
+		float: left;
+		&_img {
+			display: block;
+			margin: 0 auto;
+		}
+		&_text {
+			width: 100%;
+			font-size: 120%;
+			text-align: center;
+			margin: 0;
+			margin-top: 5px;
+			text-transform: uppercase;
+			color: $logo_text_color;
+		}
+	}
+}
